@@ -8,3 +8,9 @@ export interface ButtonProps {
   shape?: "rounded-sm" | "rounded-md" | "rounded-full";
   onClick?: () => void;
 }
+export interface PostProps {
+  userId: number;
+  id?: number; // optional if you want to track posts uniquely
+  title: string;
+  content: string;
+}
