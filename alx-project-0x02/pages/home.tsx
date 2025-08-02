@@ -4,6 +4,7 @@ import PostModal from "../components/common/PostModal";
 
 const HomePage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+
   const [posts, setPosts] = useState([
     {
       title: "Modern UI",
@@ -14,6 +15,11 @@ const HomePage = () => {
       title: "Fast Performance",
       content:
         "Optimized code ensures your website runs smoothly and loads quickly.",
+    },
+    {
+      title: "Scalable Design",
+      content:
+        "Build apps that scale with ease, whether you're starting small or going big.",
     },
   ]);
 
@@ -27,6 +33,7 @@ const HomePage = () => {
         Welcome to the Home Page
       </h1>
 
+      {/* Create Post Button */}
       <button
         onClick={() => setIsModalOpen(true)}
         className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700"
@@ -34,12 +41,14 @@ const HomePage = () => {
         + Create New Post
       </button>
 
+      {/* Modal for New Post */}
       <PostModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         onSubmit={handleAddPost}
       />
 
+      {/* Render all posts as Cards */}
       <div className="flex flex-col sm:flex-row flex-wrap gap-6 justify-center items-center mt-6">
         {posts.map((post, index) => (
           <Card key={index} title={post.title} content={post.content} />
